@@ -6,7 +6,7 @@ var app = express();
 app.use(bodyParser.json());
 
 // Create link to Angular build directory
-var distDir = __dirname + (process.env.DIST_FOLDER || '/.tmp/');
+var distDir = __dirname + (process.env.DIST_FOLDER || '/dist/');
 app.use(express.static(distDir));
 
 // Initialize the app.
