@@ -1,4 +1,5 @@
 export class NavigationController {
+  /** @ngInject */
   constructor($rootScope) {
     this.rootScope = $rootScope;
   }

@@ -1,4 +1,5 @@
 class CarouselController {
+  /** @ngInject */
   constructor() {
     this.movies = [1, 2, 3, 4];
   }

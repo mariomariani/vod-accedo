@@ -1,4 +1,5 @@
 class MovieController {
+  /** @ngInject */
   constructor() {
     console.log(this.movie);
   }
