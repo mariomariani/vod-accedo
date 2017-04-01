@@ -1,5 +1,5 @@
-export const hello = {
-  template: require('./hello.html'),
+export const main = {
+  template: require('./main.html'),
   controller($scope) {
     this.hello = 'Hello World!';
 
