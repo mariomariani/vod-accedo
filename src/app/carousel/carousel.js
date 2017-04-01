@@ -1,3 +1,3 @@
-export const navbar = {
-  template: require('./navbar.html')
+export const carousel = {
+  template: require('./carousel.html')
 };

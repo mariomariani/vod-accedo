@@ -1,18 +1,18 @@
 import angular from 'angular';
 import 'angular-mocks';
-import {hello} from './hello';
+import {main} from './main';
 
-describe('hello component', () => {
+describe('main component', () => {
   beforeEach(() => {
     angular
-      .module('fountainHello', ['app/hello.html'])
-      .component('fountainHello', hello);
-    angular.mock.module('fountainHello');
+      .module('main', ['app/main.html'])
+      .component('main', main);
+    angular.mock.module('main');
   });
-  it('should render hello world', angular.mock.inject(($rootScope, $compile) => {
-    const element = $compile('<fountain-hello>Loading...</fountain-hello>')($rootScope);
+  it('should render main world', angular.mock.inject(($rootScope, $compile) => {
+    const element = $compile('<main>Loading...</main>')($rootScope);
     $rootScope.$digest();
-    const h1 = element.find('h1');
-    expect(h1.html()).toEqual('Hello World!');
+    const result = element[0].querySelectorAll('.main');
+    expect(result.length).toEqual(1);
   }));
 });
