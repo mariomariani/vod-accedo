@@ -1,3 +1,5 @@
+export const NAVIGATION_KEYS = [13, 37, 39];
+
 export class NavigationController {
   /** @ngInject */
   constructor($rootScope) {
@@ -6,12 +8,11 @@ export class NavigationController {
 
   navigate(event) {
     if (this.isNavigationEvent(event.keyCode)) {
-      this.rootScope.$broadcast('key', event.keyCode);
+      this.rootScope.$broadcast('key_pressed', event.keyCode);
     }
   }
 
   isNavigationEvent(keyCode) {
-    const NAVIGATION_EVENTS = [13, 37, 39];
-    return NAVIGATION_EVENTS.indexOf(keyCode) !== -1;
+    return NAVIGATION_KEYS.indexOf(keyCode) !== -1;
   }
 }

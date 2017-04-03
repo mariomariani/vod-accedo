@@ -9,7 +9,7 @@ describe('main component', () => {
       .component('main', main);
     angular.mock.module('main');
   });
-  it('should render main world', angular.mock.inject(($rootScope, $compile) => {
+  it('should render main', angular.mock.inject(($rootScope, $compile) => {
     const element = $compile('<main>Loading...</main>')($rootScope);
     $rootScope.$digest();
     const result = element[0].querySelectorAll('.main');
