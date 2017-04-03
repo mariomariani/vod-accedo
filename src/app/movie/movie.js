@@ -3,6 +3,15 @@ class MovieController {
   constructor() {
     console.log(this.movie);
   }
+
+  $onInit() {
+    console.log(this.movie.images[0].url);
+  }
+
+  folderUrl() {
+    console.log(this.movie.images[0].url);
+    return this.movie.images[0].url;
+  }
 }
 
 export const movie = {

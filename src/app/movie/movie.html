@@ -1,6 +1,6 @@
 <div class="movie">
-  <a class="folder" href="#" ng-class="{selected: movieCtrl.movie.selected}">
-    <img src="">
+  <a class="folder" href="#">
+    <img ng-src="{{movieCtrl.folderUrl()}}" ng-class="{selected: movieCtrl.movie.selected}">
   </a>
   <div class="title">
     {{movieCtrl.movie.title}}

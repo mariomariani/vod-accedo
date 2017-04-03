@@ -2,29 +2,23 @@ import {NAVIGATION_KEYS} from '../navigation';
 
 class CarouselController {
   /** @ngInject */
-  constructor($scope) {
-    this.movies = [
-      {
-        title: 0,
-        selected: false
-      },
-      {
-        title: 1,
-        selected: false
-      },
-      {
-        title: 2,
-        selected: false
-      },
-      {
-        title: 3,
-        selected: false
-      }
-    ];
+  constructor($scope, $http) {
     this.$scope = $scope;
+    this.$http = $http;
 
-    this.enableKeyboardNavigation();
-    this.selectFirstMovie();
+    this.loadMovies()
+      .then(() => {
+        this.enableKeyboardNavigation();
+        this.selectFirstMovie();
+      });
+  }
+
+  loadMovies() {
+    const url = 'https://demo2697834.mockable.io/movies';
+    return this.$http.get(url)
+      .then(response => {
+        this.movies = response.data.entries;
+      });
   }
 
   enableKeyboardNavigation() {
