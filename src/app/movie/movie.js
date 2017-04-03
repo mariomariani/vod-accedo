@@ -9,7 +9,6 @@ class MovieController {
   }
 
   folderUrl() {
-    console.log(this.movie.images[0].url);
     return this.movie.images[0].url;
   }
 }

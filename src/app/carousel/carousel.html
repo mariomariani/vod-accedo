@@ -1,7 +1,7 @@
 <section class="carousel">
   <ul class="movies">
     <li class="movie-item" ng-repeat="movie in carouselCtrl.movies">
-      <movie movie="movie"></movie>
+      <movie movie="movie" ng-click="carouselCtrl.selectOnClick($index)"></movie>
     </li>
   </ul>
 </section>

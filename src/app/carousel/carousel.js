@@ -2,9 +2,10 @@ import {NAVIGATION_KEYS} from '../navigation';
 
 class CarouselController {
   /** @ngInject */
-  constructor($scope, $http) {
+  constructor($scope, $http, $element) {
     this.$scope = $scope;
     this.$http = $http;
+    this.$element = $element;
 
     this.loadMovies()
       .then(() => {
@@ -75,6 +76,18 @@ class CarouselController {
     });
 
     this.movies[this.selected].selected = true;
+    this.setFocus();
+  }
+
+  // Focus on selected element to scroll movies
+  setFocus() {
+    const movies = this.$element[0].querySelectorAll('.movie .folder');
+    movies[this.selected].focus();
+  }
+
+  selectOnClick(index) {
+    this.selected = index;
+    this.selectMovie();
   }
 }
 

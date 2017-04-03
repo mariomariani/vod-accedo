@@ -13,6 +13,7 @@ export class NavigationController {
   navigate(event) {
     if (this.isNavigationEvent(event.keyCode)) {
       this.rootScope.$broadcast('navigation', event.keyCode);
+      event.preventDefault();
     }
   }
 
