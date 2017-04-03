@@ -1,6 +1,4 @@
-const ENTER = 13;
-const LEFT = 37;
-const RIGHT = 39;
+import {NAVIGATION_KEYS} from '../navigation';
 
 class CarouselController {
   /** @ngInject */
@@ -17,15 +15,15 @@ class CarouselController {
   }
 
   selectMovie(keyPressed) {
-    if (keyPressed === ENTER) {
+    if (keyPressed === NAVIGATION_KEYS.ENTER) {
       this.playMovie();
       return;
     }
-    if (keyPressed === LEFT) {
+    if (keyPressed === NAVIGATION_KEYS.LEFT) {
       this.selectLeft();
       return;
     }
-    if (keyPressed === RIGHT) {
+    if (keyPressed === NAVIGATION_KEYS.RIGHT) {
       this.selectRight();
       return;
     }

@@ -1,4 +1,8 @@
-export const NAVIGATION_KEYS = [13, 37, 39];
+export const NAVIGATION_KEYS = {
+  ENTER: 13,
+  LEFT: 37,
+  RIGHT: 39
+};
 
 export class NavigationController {
   /** @ngInject */
@@ -13,6 +17,14 @@ export class NavigationController {
   }
 
   isNavigationEvent(keyCode) {
-    return NAVIGATION_KEYS.indexOf(keyCode) !== -1;
+    let isNavigationKey = false;
+
+    angular.forEach(NAVIGATION_KEYS, code => {
+      if (keyCode === code) {
+        isNavigationKey = true;
+      }
+    });
+
+    return isNavigationKey;
   }
 }
