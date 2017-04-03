@@ -1,7 +1,8 @@
 <div class="movie">
-  <a class="folder" href="#">
-    {{movieCtrl.movie}}
+  <a class="folder" href="#" ng-class="{selected: movieCtrl.movie.selected}">
     <img src="">
   </a>
-  <span class="title"></span>
+  <div class="title">
+    {{movieCtrl.movie.title}}
+  </div>
 </div>

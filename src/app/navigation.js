@@ -12,7 +12,7 @@ export class NavigationController {
 
   navigate(event) {
     if (this.isNavigationEvent(event.keyCode)) {
-      this.rootScope.$broadcast('key_pressed', event.keyCode);
+      this.rootScope.$broadcast('navigation', event.keyCode);
     }
   }
 
