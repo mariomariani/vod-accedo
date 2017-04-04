@@ -1,0 +1,9 @@
+<div class="player">
+  <h1>{{playerCtrl.movie.title}}</h1>
+  <video id="playerCtrl.movie.id"
+    class="video-js vjs-default-skin video-player"
+    controls autoplay
+    preload="auto" width="640" height="360">
+    <source ng-src="{{playerCtrl.movieUrl()}}" type="video/mp4" />
+  </video>
+</div>

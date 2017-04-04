@@ -12,6 +12,9 @@ function routesConfig($stateProvider, $urlRouterProvider, $locationProvider) {
     })
     .state('player', {
       url: '/play/{movieId}',
-      component: 'player'
+      component: 'player',
+      params: {
+        movie: null
+      }
     });
 }

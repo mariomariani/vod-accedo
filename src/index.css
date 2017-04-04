@@ -53,6 +53,13 @@ a {
   background-color: #666;
 }
 
+/* Carousel */
+.carousel .loading {
+  color: #5d5d5d;
+  font-size: 2em;
+  margin: 20px;
+}
+
 /* Movies */
 .movies {
   white-space: nowrap;
@@ -84,4 +91,15 @@ a {
   overflow: hidden;
   color: #5d5d5d;
   font-size: 0.9em;
+}
+
+/* Player */
+.player {
+  width: 640px;
+  margin: 0 auto;
+}
+.player h1 {
+  color: #5d5d5d;
+  font-size: 2em;
+  margin: 10px 0 20px 0;
 }

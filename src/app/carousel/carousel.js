@@ -45,11 +45,16 @@ class CarouselController {
   }
 
   playMovie() {
-    const movieId = this.movies[this.selected].id;
-    this.$state.go('player', {movieId});
+    const movie = this.movies[this.selected];
+
+    this.$state.go('player', {
+      movieId: movie.id,
+      movie
+    });
   }
 
   selectLeft() {
+    // First movie is selected, can't move left
     if (this.selected === 0) {
       return;
     }
@@ -58,6 +63,7 @@ class CarouselController {
   }
 
   selectRight() {
+    // Last movie is selected, can't move right
     if (this.selected === this.movies.length - 1) {
       return;
     }

@@ -1,7 +1,10 @@
 <section class="carousel">
+  <p class="loading" ng-hide="carouselCtrl.movies">
+    Loading Amazing Movies...
+  </p>
   <ul class="movies">
     <li class="movie-item" ng-repeat="movie in carouselCtrl.movies">
-      <movie movie="movie"></movie>
+      <movie movie="movie" ng-click="carouselCtrl.playMovie()"></movie>
     </li>
   </ul>
 </section>
