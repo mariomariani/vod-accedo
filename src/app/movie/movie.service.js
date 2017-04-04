@@ -7,10 +7,9 @@ export default class MovieService {
   }
 
   loadMovies() {
-    const url = 'https://demo2697834.mockable.io/movies';
-    return this.$http.get(url)
-      .then(response => {
-        this.movies = response.data.entries;
+    return this.resolveMovies()
+      .then(movies => {
+        this.movies = movies;
         return this.movies;
       });
   }
@@ -24,11 +23,17 @@ export default class MovieService {
   }
 
   resolveMovies() {
+    const url = 'https://demo2697834.mockable.io/movies';
+
     return this.$q(resolve => {
       if (this.movies) {
         return resolve(this.movies);
       }
-      return resolve(this.loadMovies());
+
+      this.$http.get(url)
+        .then(response => {
+          return resolve(response.data.entries);
+        });
     });
   }
 
@@ -43,7 +48,7 @@ export default class MovieService {
     angular.forEach(this.history, movieId => {
       angular.forEach(this.movies, movie => {
         if (movie.id === movieId) {
-          historyMovies.push(movie);
+          historyMovies.push(angular.copy(movie));
           return;
         }
       });
