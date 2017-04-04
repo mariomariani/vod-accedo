@@ -9,5 +9,9 @@ function routesConfig($stateProvider, $urlRouterProvider, $locationProvider) {
     .state('main', {
       url: '/',
       component: 'main'
+    })
+    .state('player', {
+      url: '/play/{movieId}',
+      component: 'player'
     });
 }

@@ -25,13 +25,20 @@ a {
   height: 50px;
   width: 100%;
   background-color: #555;
-  color: white;
   font-size: 17px;
   vertical-align: center;
 }
 .navbar .title {
   float: left;
   padding: 15px;
+}
+.navbar .title a {
+  padding: 15px;
+  color: white;
+}
+.navbar .title a:hover {
+  color: white;
+  background-color: #666;
 }
 .navbar .links {
   float: right;
