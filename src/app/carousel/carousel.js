@@ -2,10 +2,11 @@ import {NAVIGATION_KEYS} from '../navigation';
 
 class CarouselController {
   /** @ngInject */
-  constructor($scope, $http, $element) {
+  constructor($scope, $http, $element, $state) {
     this.$scope = $scope;
     this.$http = $http;
     this.$element = $element;
+    this.$state = $state;
 
     this.loadMovies()
       .then(() => {
@@ -44,7 +45,8 @@ class CarouselController {
   }
 
   playMovie() {
-    console.log('play ' + this.selected);
+    const movieId = this.movies[this.selected].id;
+    this.$state.go('player', {movieId});
   }
 
   selectLeft() {
@@ -65,10 +67,6 @@ class CarouselController {
 
   selectFirstMovie() {
     this.selectMovie(0);
-  }
-
-  selectOnClick(index) {
-    this.selectMovie(index);
   }
 
   selectMovie(index) {
