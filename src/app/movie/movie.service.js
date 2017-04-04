@@ -7,34 +7,32 @@ export default class MovieService {
   }
 
   loadMovies() {
-    return this.resolveMovies()
-      .then(movies => {
-        this.movies = movies;
-        return this.movies;
-      });
+    return this.$q(resolve => {
+      // return this.movies if it's already been loaded
+      if (this.movies) {
+        return resolve(this.movies);
+      }
+
+      return this.loadMoviesFromApi(resolve);
+    });
   }
 
   loadHistory() {
-    return this.resolveMovies()
+    return this.loadMovies()
       .then(() => {
         this.history = this.getHistory();
         return this.getMoviesFromHistory(this.history).reverse();
       });
   }
 
-  resolveMovies() {
+  loadMoviesFromApi(resolve) {
     const url = 'https://demo2697834.mockable.io/movies';
 
-    return this.$q(resolve => {
-      if (this.movies) {
+    this.$http.get(url)
+      .then(response => {
+        this.movies = response.data.entries;
         return resolve(this.movies);
-      }
-
-      this.$http.get(url)
-        .then(response => {
-          return resolve(response.data.entries);
-        });
-    });
+      });
   }
 
   getHistory() {
