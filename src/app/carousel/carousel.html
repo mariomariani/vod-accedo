@@ -4,7 +4,7 @@
   </p>
   <ul class="movies">
     <li class="movie-item" ng-repeat="movie in carouselCtrl.movies">
-      <movie movie="movie" ng-click="carouselCtrl.playMovie()"></movie>
+      <movie movie="movie" ng-click="carouselCtrl.playMovie($index)"></movie>
     </li>
   </ul>
 </section>

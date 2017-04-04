@@ -44,8 +44,8 @@ class CarouselController {
     }
   }
 
-  playMovie() {
-    const movie = this.movies[this.selected];
+  playMovie(index = this.selected) {
+    const movie = this.movies[index];
 
     this.$state.go('player', {
       movieId: movie.id,
