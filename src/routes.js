@@ -8,7 +8,12 @@ function routesConfig($stateProvider, $urlRouterProvider, $locationProvider) {
   $stateProvider
     .state('main', {
       url: '/',
-      component: 'main'
+      component: 'main',
+      resolve: {
+        movies: movieService => {
+          return movieService.loadMovies();
+        }
+      }
     })
     .state('player', {
       url: '/play/{movieId}',

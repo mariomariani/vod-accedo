@@ -2,25 +2,16 @@ import {NAVIGATION_KEYS} from '../navigation';
 
 class CarouselController {
   /** @ngInject */
-  constructor($scope, $http, $element, $state) {
+  constructor($scope, $cookies, $element, $state) {
     this.$scope = $scope;
-    this.$http = $http;
+    this.$cookies = $cookies;
     this.$element = $element;
     this.$state = $state;
-
-    this.loadMovies()
-      .then(() => {
-        this.enableKeyboardNavigation();
-        this.selectFirstMovie();
-      });
   }
 
-  loadMovies() {
-    const url = 'https://demo2697834.mockable.io/movies';
-    return this.$http.get(url)
-      .then(response => {
-        this.movies = response.data.entries;
-      });
+  $onInit() {
+    this.enableKeyboardNavigation();
+    this.selectFirstMovie();
   }
 
   enableKeyboardNavigation() {
@@ -46,11 +37,19 @@ class CarouselController {
 
   playMovie(index = this.selected) {
     const movie = this.movies[index];
+    this.pushToHistory(movie.id);
 
     this.$state.go('player', {
       movieId: movie.id,
       movie
     });
+  }
+
+  pushToHistory(movieId) {
+    const key = 'history';
+    const history = this.$cookies.getObject(key) || [];
+    history.push(movieId);
+    this.$cookies.putObject(key, history);
   }
 
   selectLeft() {
@@ -98,5 +97,8 @@ class CarouselController {
 export const carousel = {
   template: require('./carousel.html'),
   controller: CarouselController,
-  controllerAs: 'carouselCtrl'
+  controllerAs: 'carouselCtrl',
+  bindings: {
+    movies: '<'
+  }
 };
