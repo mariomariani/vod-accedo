@@ -52,6 +52,7 @@ class CarouselController {
     }
 
     this.selectMovie(this.selected - 1);
+    this.scrollMoviesList(this.selected - 1);
   }
 
   selectRight() {
@@ -61,6 +62,7 @@ class CarouselController {
     }
 
     this.selectMovie(this.selected + 1);
+    this.scrollMoviesList(this.selected + 1);
   }
 
   selectFirstMovie() {
@@ -79,14 +81,12 @@ class CarouselController {
     });
 
     this.movies[this.selected].selected = true;
-    this.setFocus();
   }
 
-  // Focus on selected element to scroll movies
-  setFocus() {
-    const movies = this.$element[0].querySelectorAll('.movie .folder');
-    if (movies[this.selected]) {
-      movies[this.selected].focus();
+  scrollMoviesList(position) {
+    const movies = this.$element[0].querySelectorAll('.movie');
+    if (movies[position]) {
+      movies[position].scrollIntoView();
     }
   }
 }
