@@ -56,6 +56,7 @@ a {
 }
 
 .movie {
+  width: 214px;
   padding: 10px;
 }
 .movie .folder {
@@ -70,4 +71,10 @@ a {
 .movie .folder .selected {
   border: 2px solid #ffffff;
   border-radius: 3px;
+}
+.movie .title {
+  text-overflow: ellipsis;
+  overflow: hidden;
+  color: #5d5d5d;
+  font-size: 0.9em;
 }
