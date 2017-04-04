@@ -9,6 +9,7 @@ import {player} from './app/player/player';
 import {NavigationController} from './app/navigation';
 
 import 'angular-ui-router';
+import videojs from './video-js';
 import routesConfig from './routes';
 
 import './index.css';
@@ -16,7 +17,7 @@ import './index.css';
 export const app = 'app';
 
 angular
-  .module(app, ['ui.router'])
+  .module(app, ['ui.router', videojs])
   .config(routesConfig)
   .controller('NavigationController', NavigationController)
   .component('navbar', navbar)
