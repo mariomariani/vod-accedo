@@ -106,6 +106,6 @@ a {
 }
 .player .video-js {
   width: 100%;
-  height: auto;
+  height: 360px;
   margin: 0 auto;
 }
