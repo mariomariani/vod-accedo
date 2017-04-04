@@ -3,7 +3,7 @@
     Loading Amazing Movies...
   </p>
   <ul class="movies">
-    <li class="movie-item" ng-repeat="movie in carouselCtrl.movies">
+    <li class="movie-item" ng-repeat="movie in carouselCtrl.movies track by $index">
       <movie movie="movie" ng-click="carouselCtrl.playMovie($index)"></movie>
     </li>
   </ul>

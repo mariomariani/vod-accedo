@@ -15,6 +15,15 @@ function routesConfig($stateProvider, $urlRouterProvider, $locationProvider) {
         }
       }
     })
+    .state('history', {
+      url: '/history',
+      component: 'main',
+      resolve: {
+        movies: movieService => {
+          return movieService.loadHistory();
+        }
+      }
+    })
     .state('player', {
       url: '/play/{movieId}',
       component: 'player',
