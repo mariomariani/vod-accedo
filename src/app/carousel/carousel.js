@@ -1,4 +1,4 @@
-import {NAVIGATION_KEYS} from '../navigation';
+import {NAVIGATION_EVENT, NAVIGATION_KEYS} from '../navigation';
 
 class CarouselController {
   /** @ngInject */
@@ -15,7 +15,7 @@ class CarouselController {
   }
 
   enableKeyboardNavigation() {
-    this.$scope.$on('navigation', (event, keyPressed) => {
+    this.$scope.$on(NAVIGATION_EVENT, (event, keyPressed) => {
       this.navigate(keyPressed);
     });
   }

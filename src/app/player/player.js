@@ -11,14 +11,14 @@ class PlayerController {
     }
 
     this.movie = $stateParams.movie;
-    this.getPlayer();
+    this.initPlayer();
   }
 
   redirectToHome() {
     this.$state.go('main');
   }
 
-  getPlayer() {
+  initPlayer() {
     const playerId = this.movie.id;
 
     // Wait for player to be loaded

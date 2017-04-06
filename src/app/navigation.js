@@ -1,3 +1,5 @@
+export const NAVIGATION_EVENT = 'navigation';
+
 export const NAVIGATION_KEYS = {
   ENTER: 13,
   LEFT: 37,
@@ -12,7 +14,9 @@ export class NavigationController {
 
   navigate(event) {
     if (this.isNavigationEvent(event.keyCode)) {
-      this.rootScope.$broadcast('navigation', event.keyCode);
+      this.rootScope.$broadcast(NAVIGATION_EVENT, event.keyCode);
+
+      // Prevent default scrolling when pressing L/R arrow keys
       event.preventDefault();
     }
   }
